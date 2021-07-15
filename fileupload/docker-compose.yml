@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  web:
+    container_name: fileupload
+    command: python manage.py runserver 0.0.0.0:8030
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/usr/src/app/
+    ports:
+      - 8030:8030
+    env_file: .env
+    environment:
+      DEBUG: 1
+      TZ: "Asia/Kolkata"
